@@ -1,0 +1,34 @@
+<%- include('header', {pageTitle: 'Csapatok'}) -%>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Labdarúgó csapat nyilvántartás</h1>
+            <table class="table table">
+                <thead>
+                    <th>Csapat neve</th>
+                    <th>Alapítás éve</th>
+                    <th><a href="/csapatok/new" class="btn btn-dark">Új csapat felvétele</a></th>
+                </thead>
+                <tbody>
+                    <% csapatok.forEach(function (egyCsapat){%>
+                        <tr>
+                            <td><%= egyCsapat.nev%></td>
+                            <td><%= egyCsapat.alapitasEve%></td>
+                            <td>
+                                <a href="/<%= egyCsapat._id%>/jatekosok" class="btn btn-sm btn-dark">Részletek</a>
+                                <a href="/csapatok/<%= egyCsapat._id%>/szerkesztes" class="btn btn-sm btn-dark">Szerkesztés</a>
+                                <a href="/csapatok/<%= egyCsapat._id%>/del" class="btn btn-sm btn-dark">Törlés</a>
+                            </td>
+                        </tr>
+                    <%});%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include('footer') -%>
+

@@ -1,0 +1,36 @@
+<%- include('header', {pageTitle: 'Játékosok'}) -%>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2><%=csapat.nev%></h2>
+            <table class="table">
+                <thead>
+                <th>Név</th>
+                <th>Születési dátum</th>
+                <th>Mezszám</th>
+                <th><a href="/<%=csapat._id%>/jatekosok/new" class="btn btn-dark">Játékos hozzáadása</a></th>
+                </thead>
+                <tbody>
+                <%jatekosok.forEach(function (egyJatekos){%>
+                    <tr>
+                        <td><%= egyJatekos.nev%></td>
+                        <td><%= moment(egyJatekos.szulDatum).format('YYYY-MM-DD')%></td>
+                        <td><%= egyJatekos.mezszam%></td>
+                        <td>
+                            <a href="/<%=csapat._id%>/jatekosok/<%=egyJatekos._id%>/szerkesztes" class="btn btn-sm btn-dark">Szerkeszt</a>
+                            <a href="/<%=csapat._id%>/jatekosok/<%=egyJatekos._id%>/del" class="btn btn-sm btn-dark">Töröl</a>
+                        </td>
+                    </tr>
+                <%})%>
+                </tbody>
+            </table>
+            <a href="/csapatok" class="btn btn-dark">Vissza a csapatok listájához</a>
+        </div>
+    </div>
+</div>
+
+
+<%- include('footer') -%>
+

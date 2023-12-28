@@ -1,0 +1,25 @@
+<%- include('header', {pageTitle: 'Csapatszerkesztő'}) -%>
+
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="cl-12">
+            <h3>Kérük adja meg a csapat adatait!</h3>
+            <form method="POST">
+                <input type="hidden" name="_id" value="<%=(typeof csapat === 'undefined') ? '' : csapat._id %>">
+                <div class="form-group">
+                    <label for="csapatNev">Csapat neve</label>
+                    <input type="text" required class="form-control" id="csapatNev" name="nev" value="<%=(typeof csapat === 'undefined') ? '' : csapat.nev %>">
+                </div>
+                <div class="form-group">
+                    <label for="alapitasEve">Alapítás éve</label>
+                    <input type="number" required class="form-control" id="alapitasEve" name="alapitasEve" value="<%=(typeof csapat === 'undefined') ? '' : csapat.alapitasEve%>">
+                </div>
+                <input type="submit" class="btn btn-sm btn-dark" value="Ment">
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>
+
+
